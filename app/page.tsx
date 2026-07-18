@@ -59,7 +59,8 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    void loadModel();
+    const timer = window.setTimeout(() => void loadModel(), 0);
+    return () => window.clearTimeout(timer);
   }, [loadModel]);
 
   async function analyze() {
